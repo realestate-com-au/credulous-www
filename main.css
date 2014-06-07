@@ -6,14 +6,14 @@
 		linear,
 		left top,
 		left bottom,
-		color-stop(0, #5A0806),
+		color-stop(0, #002299),
 		color-stop(1, #0044AA)
 	);
-	background-image: -o-linear-gradient(bottom, #5A0806 0%, #0044AA 100%);
-	background-image: -moz-linear-gradient(bottom, #5A0806 0%, #0044AA 100%);
-	background-image: -webkit-linear-gradient(bottom, #5A0806 0%, #0044AA 100%);
-	background-image: -ms-linear-gradient(bottom, #5A0806 0%, #0044AA 100%);
-	background-image: linear-gradient(to bottom, #5A0806 0%, #0044AA 100%);
+	background-image: -o-linear-gradient(bottom, #002299 0%, #0044AA 100%);
+	background-image: -moz-linear-gradient(bottom, #002299 0%, #0044AA 100%);
+	background-image: -webkit-linear-gradient(bottom, #002299 0%, #0044AA 100%);
+	background-image: -ms-linear-gradient(bottom, #002299 0%, #0044AA 100%);
+	background-image: linear-gradient(to bottom, #002299 0%, #0044AA 100%);
 }
 
 .mainpage {
