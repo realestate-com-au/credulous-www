@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Credulous FAQs</title>
+<link rel="stylesheet" href="main.css">
+</head>
+
+<body class="mainpage">
+
+<div class="header">
+	<h1 class="headerh1">Credulous FAQs</h1>
+</div>
+<div id="wrapper">
+
+	<a href="index.html">Home</a>
+
+	<h2>Implementation Questions</h2>
+
+	<h3>What AWS rights are required for Credulous?</h3>
+
+	<p id="para"><strong>Saving and sourcing credentials:</strong>
+	Credulous needs to be able to find out the IAM username and
+	AWS account alias (if one is set), in order to save or sourceg
+	the current credentials without the use of theg
+	<code>--force</code> option. This corresponds to an IAM policy
+	like this:</p>
+
+	<p id="para"><pre>
+			{
+			  "Statement": [
+			    {
+			      "Sid": "PermitUserSeeOwnDetails",
+			      "Action": [
+				"iam:GetUser",
+				"iam:ListAccessKeys",
+				"iam:ListAccountAliases"
+			      ],
+			      "Effect": "Allow",
+			      "Resource": "arn:aws:iam::*:user/${aws:username}"
+			    }
+			  ]
+			}
+	</pre></p>
+
+	<p id="para"><strong>Rotating credentials:</strong>
+	For Credulous to be able to rotate your credentials, your IAM
+	user needs to have the rights to create and delete your own
+	Access Keys. This corresponds to an IAM policy that looks like:</p>
+
+	<p id="para"><pre>
+			{
+			  "Statement": [
+			    {
+			      "Sid": "ManageOwnAccessKeys",
+			      "Action": [
+				"iam:CreateAccessKey",
+				"iam:DeleteAccessKey",
+				"iam:ListAccessKeys"
+			      ],
+			      "Effect": "Allow",
+			      "Resource": "arn:aws:iam::*:user/${aws:username}"
+			    }
+			  ]
+			}
+	</pre></p>
+</div>
+
+</body>
+</html>
